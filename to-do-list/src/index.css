@@ -2,8 +2,14 @@
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center;
     margin-top: 50px;
-}
 
+}
+.text{
+    flex:1;
+}
+body{
+    background-color: hsl(0, 0%, 35%);
+}
 .task{
     font-size: 1.3rem;
     display: inline-block;
@@ -14,11 +20,28 @@ input{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid hsla(0, 0%, 0%, 0.507);
     border-radius: 5px;
 }
 h1{
     font-size: 3rem;
+    color: white;
+}
+
+ol{
+    padding: 0;
+}
+
+li{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px;
+    border: 2px solid hsla(0, 0%, 0%, 0.507);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 }
 
 button{
@@ -28,10 +51,11 @@ button{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.5 ease;
+    transition: background-color 0.5s ease;
 }
 
 .add-button{
+    border: 2px solid hsla(0, 0%, 0%, 0.507);
     background-color: hsl(117, 61%, 42%);
 }
 .add-button:hover{
@@ -43,4 +67,8 @@ button{
 }
 .delete-button:hover{
     background-color: hsl(1, 100%, 42%);
+}
+
+.delete-button .move-button{
+    padding: 10px 10px;
 }

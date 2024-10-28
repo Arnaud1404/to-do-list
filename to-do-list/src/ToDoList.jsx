@@ -7,7 +7,8 @@ function ToDoList(){
     const [task, setTask] = useState("");
 
 
-    function AddTask(){
+    function addTask(){
+        if(task.trim() === "") return;
         const newTask = {name:task, done:false};
         setTaskList(t => [...t, newTask]);
         setTask("");
@@ -48,24 +49,25 @@ function ToDoList(){
     return(
     <div className="to-do-list">
         <h1>To Do List</h1>
-        <ul>
+        <input type="text" value={task}
+               onChange={handleInputChange} placeholder="Enter a new task ..."></input>
+        <button className="add-button" onClick={addTask}>Add task</button>
+        <ol>
             {taskList.map((task, index) => 
             <div className="task">
                 <li  key={index} onClick={() => handleDoneChange(index)}>
-                    {task.name} {task.done ? "✅" : "❌"}
+                {task.name} {task.done ? "✅" : "❌"}
                 </li>
                 <div>
-                <button className="delete-button" key={index} onClick={() => deleteTask(index)}> 🗑 </button>
-                <button key={index} onClick={() => moveTaskUp(index)}> ⬆ </button>
-                <button key={index} onClick={() => moveTaskDown(index)}> ⬇ </button>
+                <button className="delete-button" key={index} onClick={() => deleteTask(index)}> 🗑 Delete </button>
+                <button className="move-button" key={index} onClick={() => moveTaskUp(index)}> ⬆ </button>
+                <button className="move-button" key={index} onClick={() => moveTaskDown(index)}> ⬇ </button>
                 </div>
                 
             </div>
             )}
-        </ul>
-        <input type="text" value={task}
-               onChange={handleInputChange} placeholder="Write a new task"></input>
-        <button className="add-button" onClick={AddTask}>Add task</button>
+        </ol>
+        
     </div>
     )
 }
